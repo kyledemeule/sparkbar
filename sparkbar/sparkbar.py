@@ -4,8 +4,12 @@ import math
 
 # FYI there are 8 of them
 _BLOCKS = "▏▎▍▌▋▊▉█"
+_MAX_WIDTH = 128
 
 def sparkbarh(numbers=[], width=8, add_num=False):
+    assert width > 0, "Requires non-negative width"
+    assert width <= _MAX_WIDTH, "Max width is 128 characters."
+
     if len(numbers) == 0:
         return []
 
@@ -35,11 +39,11 @@ def _has_negative_numbers(numbers):
 
 def sparkbarh_cell(value, max_value, width, add_num=False):
     assert width > 0, "Requires non-negative width"
-    assert width <= 128, "Max width is 128 characters."
-    assert value <= max_value, "Value to draw exceeds max value"
+    assert width <= _MAX_WIDTH, "Max width is 128 characters."
 
     if value is None:
         return ""
+    assert value <= max_value, "Value to draw exceeds max value"
 
     bar_length = width * (value / max_value)
     full_bars = _BLOCKS[7] * math.floor(bar_length)
