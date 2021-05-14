@@ -30,7 +30,7 @@ def test_barh_cell_partial_cel2():
 
 def test_barh_cell_less_than_1_block():
     "Partial cell less than 1 block"
-    assert sparkbarh_cell(375, 10000, 4) == "▍"
+    assert sparkbarh_cell(9375, 100000, 4) == "▍"
 
 def test_barh_cell_negativewidth():
     "Raises on negative widths"
