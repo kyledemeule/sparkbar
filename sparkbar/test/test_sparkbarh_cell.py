@@ -28,6 +28,10 @@ def test_barh_cell_partial_cel2():
     "Partial cell 8 width"
     assert sparkbarh_cell(56, 100, 8) == "████▌"
 
+def test_barh_cell_partial_rounddown():
+    "Cells just over a block should round down to nothing"
+    assert sparkbarh_cell(1889, 3739, 8) == "████"
+
 def test_barh_cell_less_than_1_block():
     "Partial cell less than 1 block"
     assert sparkbarh_cell(9375, 100000, 4) == "▍"

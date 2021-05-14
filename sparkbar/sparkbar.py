@@ -48,7 +48,13 @@ def sparkbarh_cell(value, max_value, width=8, add_num=False):
     bar_length = width * (value / max_value)
     full_bars = _BLOCKS[7] * math.floor(bar_length)
     remain_bar_length = bar_length % 1
-    partial_bars = _BLOCKS[round(remain_bar_length * 8) - 1] if remain_bar_length > 0 else ""
+
+    remain_bar_index = round(remain_bar_length * 8) - 1
+    if remain_bar_length > 0 and remain_bar_index >= 0:
+        partial_bars = _BLOCKS[remain_bar_index]
+    else:
+        partial_bars = ""
+
     if add_num:
         return "{}{} {}".format(full_bars, partial_bars, value)
     else:
