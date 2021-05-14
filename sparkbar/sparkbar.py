@@ -37,7 +37,7 @@ def _has_negative_numbers(numbers):
             return True
     return False
 
-def sparkbarh_cell(value, max_value, width, add_num=False):
+def sparkbarh_cell(value, max_value, width=8, add_num=False):
     assert width > 0, "Requires non-negative width"
     assert width <= _MAX_WIDTH, "Max width is 128 characters."
 
