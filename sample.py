@@ -36,6 +36,24 @@ class SparkBar:
     bar_length = math.floor(self.width * (value / self.max_value))
     return BLOCKS["8"] * bar_length
 
+def sparkbarh(values, width=8, max_value=None):
+  if len(values) == 0:
+    return []
+
+  if max_value is None:
+    max_value = None
+    for val in values:
+      if val is not None:
+        max_value = max(val, max_value)
+
+  return [__barh_cell(x, max_value, width) for x in iter(values)]
+
+
+def __barh_cell(value, max_value, width):
+  bar_length = math.floor(width * (value / max_value))
+  return BLOCKS["8"] * bar_length
+
+
 
 
 if __name__=="__main__":
@@ -51,6 +69,6 @@ if __name__=="__main__":
     print("{}\t{} {}".format(car, sb.barh(val), val))
 
 
-  brs = sb.barh([220, 300, 404])
+  brs = sparkbarh([220, 300, 404, None])
   for b in brs:
     print(b)
