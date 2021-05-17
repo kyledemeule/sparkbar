@@ -6,7 +6,7 @@ import math
 _BLOCKS = "▏▎▍▌▋▊▉█"
 _MAX_WIDTH = 128
 
-def sparkbarh(numbers=[], width=8, add_num=False):
+def sparkbarh(numbers=[], width=8, value_label=False):
     assert width > 0, "Requires non-negative width"
     assert width <= _MAX_WIDTH, "Max width is 128 characters."
 
@@ -21,7 +21,7 @@ def sparkbarh(numbers=[], width=8, add_num=False):
     has_negative_numbers = _has_negative_numbers(numbers)
     assert has_negative_numbers == False, "There are negative numbers"
 
-    return [sparkbarh_cell(x, max_value, width, add_num) for x in iter(numbers)]
+    return [sparkbarh_cell(x, max_value, width, value_label) for x in iter(numbers)]
 
 
 def _find_max_value(numbers):
@@ -37,7 +37,7 @@ def _has_negative_numbers(numbers):
             return True
     return False
 
-def sparkbarh_cell(value, max_value, width=8, add_num=False):
+def sparkbarh_cell(value, max_value, width=8, value_label=False):
     assert width > 0, "Requires non-negative width"
     assert width <= _MAX_WIDTH, "Max width is 128 characters."
 
@@ -55,7 +55,7 @@ def sparkbarh_cell(value, max_value, width=8, add_num=False):
     else:
         partial_bars = ""
 
-    if add_num:
+    if value_label:
         return "{}{} {}".format(full_bars, partial_bars, value)
     else:
         return "{}{}".format(full_bars, partial_bars)

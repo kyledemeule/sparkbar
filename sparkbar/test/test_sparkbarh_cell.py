@@ -51,7 +51,7 @@ def test_barh_cell_value_exceed_max():
     with pytest.raises(Exception) as e_info:
         sparkbarh_cell(10, 5, 12)
 
-def test_barh_cell_add_num():
+def test_barh_cell_value_label():
     "Partial cell 10 width"
-    assert sparkbarh_cell(55, 100, 10, add_num=True) == "█████▌ 55"
+    assert sparkbarh_cell(55, 100, 10, value_label=True) == "█████▌ 55"
 
