@@ -4,7 +4,7 @@ import setuptools
 
 setuptools.setup(
     name='sparkbar',
-    version='1.0',
+    version='1.0.2',
     description='Creates text version of horizontal bar chart.',
     author='Kyle Demeule',
     author_email='kyle.demeule@gmail.com',

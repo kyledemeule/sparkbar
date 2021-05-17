@@ -34,7 +34,6 @@ Can also adjust width:
 
 And add a value label:
 
-
 ```
 >>> v = sparkbar.sparkbarh(a, width=15, value_label=True)
 >>> for x in v:
@@ -51,6 +50,17 @@ You can also render cells individually (but will need to supply the max value):
 ```
 >>> sparkbar.sparkbarh_cell(44, max_value=88, width=8)
 '████'
+```
+
+Incase you need alignment horizontal alighmnent you can specify `uniform_width`:
+
+```
+>>> v = sparkbar.sparkbarh(a)
+>>> print(v)
+['████████', '██████▌', '███▎', '█▎']
+>>> v = sparkbar.sparkbarh(a, uniform_width=True)
+>>> print(v)
+['████████', '██████▌ ', '███▎    ', '█▎      ']
 ```
 
 ## Running Tests

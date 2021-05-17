@@ -37,10 +37,28 @@ def test_list_with_none():
     in_list = [40, None, 10]
     assert sparkbarh(in_list, width=4) == ["████", "", "█"]
 
-def test_add_num():
+def test_value_label():
     "value_label option displays correctly"
     in_list = [40, 30, 10]
     assert sparkbarh(in_list, width=4, value_label=True) == ["████ 40", "███ 30", "█ 10"]
+
+def test_uniform_width():
+    "uniform_width option displays correctly"
+    in_list = [40, 30, 10]
+    assert sparkbarh(in_list, width=4, uniform_width=True) == [
+        "████",
+        "███ ",
+        "█   "
+    ]
+
+def test_uniform_width_and_value_label():
+    "uniform_width with value_label option displays correctly"
+    in_list = [40, 30, 10]
+    assert sparkbarh(in_list, width=4, value_label=True, uniform_width=True) == [
+        "████ 40",
+        "███ 30 ",
+        "█ 10   "
+    ]
 
 def test_negative_width():
     "Raises on negative widths"
