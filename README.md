@@ -36,7 +36,7 @@ And add a value label:
 
 
 ```
->>> v = sparkbar.sparkbarh(a, width=15, add_num=True)
+>>> v = sparkbar.sparkbarh(a, width=15, value_label=True)
 >>> for x in v:
 ...     print(x)
 ...
