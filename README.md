@@ -2,6 +2,14 @@
 
 Creates text version of horizontal bar chart.
 
+## Installation
+
+Install using pip:
+
+```
+pip install sparkbar
+```
+
 ## Usage
 
 To generate bars for a list of numbers:
